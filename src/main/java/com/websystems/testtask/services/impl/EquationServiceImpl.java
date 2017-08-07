@@ -40,16 +40,10 @@ public class EquationServiceImpl implements EquationService {
         info.setA(request.getA());
         info.setB(request.getB());
         info.setC(request.getC());
-        if (result.getX1().isNaN() || result.getX1().isInfinite()){
-            info.setX1(null);
-        } else {
-            info.setX1(result.getX1());
-        }
-        if (result.getX2().isNaN() || result.getX2().isInfinite()){
-            info.setX2(null);
-        } else {
-            info.setX2(result.getX2());
-        }
+
+        result.setX1(result.getX1().isNaN() || result.getX1().isInfinite() ? null : result.getX1());
+        result.setX2(result.getX2().isNaN() || result.getX2().isInfinite() ? null : result.getX2());
+
         this.repository.save(info);
     }
 }
