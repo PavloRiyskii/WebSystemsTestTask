@@ -41,8 +41,8 @@ public class EquationServiceImpl implements EquationService {
         info.setB(request.getB());
         info.setC(request.getC());
 
-        result.setX1(result.getX1().isNaN() || result.getX1().isInfinite() ? null : result.getX1());
-        result.setX2(result.getX2().isNaN() || result.getX2().isInfinite() ? null : result.getX2());
+        info.setX1(result.getX1().isNaN() || result.getX1().isInfinite() ? null : result.getX1());
+        info.setX2(result.getX2().isNaN() || result.getX2().isInfinite() ? null : result.getX2());
 
         this.repository.save(info);
     }
